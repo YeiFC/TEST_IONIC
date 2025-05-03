@@ -1,0 +1,7 @@
+{
+  "name": "AllUpApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
