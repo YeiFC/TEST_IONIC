@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
   standalone: true,
+  imports: [IonicModule, CommonModule],
+  templateUrl: './home.component.html',
 })
-export class HomeComponent  implements OnInit {
+export class HomeComponent implements OnInit {
+  todos: any[] = [];
 
-  constructor() { }
+  constructor(private todoService: TodoService) {}
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    this.todoService.getTodos().subscribe((data) => {
+      this.todos = data;
+    });
+  }
 }
