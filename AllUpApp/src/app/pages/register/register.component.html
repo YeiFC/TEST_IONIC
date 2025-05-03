@@ -1,27 +1,60 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Registro</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form [formGroup]="form" (ngSubmit)="register()">
-    <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
-      <ion-input formControlName="name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input formControlName="email" type="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Confirmar contraseña</ion-label>
-      <ion-input type="password" formControlName="confirm"></ion-input>
-    </ion-item>
-    <ion-button expand="full" type="submit">Registrarse</ion-button>
-  </form>
+
+  <div class="register-card">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Bienvenido</ion-card-title>
+        <ion-card-subtitle class="ion-text-center">Crea tu cuenta</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <form [formGroup]="form" (ngSubmit)="register()">
+
+          <ion-item lines="full" [class.invalid]="form.get('name')?.invalid && form.get('name')?.touched">
+            <ion-icon name="person-outline" slot="start"></ion-icon>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input formControlName="name" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item lines="full" [class.invalid]="form.get('email')?.invalid && form.get('email')?.touched">
+            <ion-icon name="mail-outline" slot="start"></ion-icon>
+            <ion-label position="floating">Correo electrónico</ion-label>
+            <ion-input formControlName="email" type="email"></ion-input>
+          </ion-item>
+
+          <ion-item lines="full" [class.invalid]="form.get('password')?.invalid && form.get('password')?.touched">
+            <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+
+          <ion-item lines="full" [class.invalid]="form.get('confirm')?.invalid && form.get('confirm')?.touched">
+            <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+            <ion-label position="floating">Confirmar contraseña</ion-label>
+            <ion-input type="password" formControlName="confirm"></ion-input>
+          </ion-item>
+
+          <ion-button expand="block" type="submit" [disabled]="form.invalid" class="ion-margin-top">
+            Registrarse
+          </ion-button>
+
+          <ion-text color="medium">
+            <p class="ion-text-center ion-margin-top">
+              ¿Ya tienes una cuenta? <a routerLink="/login">Inicia sesión</a>
+            </p>
+          </ion-text>
+
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
 </ion-content>
+
+

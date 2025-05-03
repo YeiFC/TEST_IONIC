@@ -8,7 +8,7 @@ private isAuthenticated = false;
 
 login(email: string, password: string): boolean {
 // Aquí puedes hacer la lógica real o simulada
-if (email === 'admin@demo.com' && password === '123456') {
+if (email === 'yeillemfontalcaicedo12@gmail.com' && password === '123456') {
 this.isAuthenticated = true;
 localStorage.setItem('auth', 'true');
 return true;
