@@ -1,13 +1,7 @@
 {
-<<<<<<< HEAD
   "name": "AllUpApp",
   "integrations": {
     "capacitor": {}
   },
   "type": "angular-standalone"
-=======
-  "name": "New Ionic App",
-  "integrations": {},
-  "type": "angular"
->>>>>>> 3aab78f (Desarrollos para pruebas QAS)
 }
